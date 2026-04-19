@@ -1312,6 +1312,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29e277e23dfeb14bb5b69fc3b617f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &875232861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875232863}
+  - component: {fileID: 875232862}
+  m_Layer: 0
+  m_Name: MeteorPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &875232862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875232861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec725bb9674973246aa09094bbb94fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entries:
+  - type: 0
+    prefab: {fileID: 3955418798240587005, guid: 18bb600265b4a4a4fa29f69b9f5b8404, type: 3}
+    initialSize: 0
+  - type: 1
+    prefab: {fileID: 6542101368399430838, guid: 5c3659959ebb30a489d7eef3009f8afc, type: 3}
+    initialSize: 0
+  - type: 2
+    prefab: {fileID: 122214560388886015, guid: 0cc97290e5be8a24a95be78aef2fc1a6, type: 3}
+    initialSize: 0
+  - type: 3
+    prefab: {fileID: 1416072628507055035, guid: 0d18f1a7832f6a44fa77efb30bde703e, type: 3}
+    initialSize: 0
+  - type: 4
+    prefab: {fileID: 8869476336097629157, guid: a928b6b7e9852c6429b1e3022b0ca7ed, type: 3}
+    initialSize: 0
+  - type: 5
+    prefab: {fileID: 3525697572991576568, guid: 70c536de7d9d92449ae52a7ff80766e1, type: 3}
+    initialSize: 0
+  - type: 6
+    prefab: {fileID: 6192019827025467921, guid: 46fd36c0039a3de4e8a017dd1652a1c9, type: 3}
+    initialSize: 0
+  - type: 7
+    prefab: {fileID: 6747026704579016348, guid: ae4d463454dcd3f4f8546cef1366ff03, type: 3}
+    initialSize: 0
+  - type: 8
+    prefab: {fileID: 3592861495988656133, guid: a605a9cb8e6a23444baef3434392fdb5, type: 3}
+    initialSize: 0
+  - type: 9
+    prefab: {fileID: 6554404179560890419, guid: 10eda568a7de7e04693212985f98844e, type: 3}
+    initialSize: 0
+  - type: 10
+    prefab: {fileID: 7979792204202706108, guid: a4f6c7d73f99033429f262bcba1bdeb8, type: 3}
+    initialSize: 0
+  - type: 11
+    prefab: {fileID: 1082700227081861820, guid: 65ee5b4a801d6d44eb112962bd3246e2, type: 3}
+    initialSize: 0
+  - type: 12
+    prefab: {fileID: 1273717868519207366, guid: 0b41583a19866d64b9483e371372b152, type: 3}
+    initialSize: 0
+  - type: 13
+    prefab: {fileID: 172733410043596393, guid: df633265b44cbf44eae676819a0f1900, type: 3}
+    initialSize: 0
+  - type: 14
+    prefab: {fileID: 1829189280640820382, guid: 97fc4a6e44a6aed4a9f7e4f0a4e48bc3, type: 3}
+    initialSize: 0
+  - type: 15
+    prefab: {fileID: 8266873878386540212, guid: 04d0e694d442538469994e2367f412b4, type: 3}
+    initialSize: 0
+  - type: 16
+    prefab: {fileID: 1187051454626278293, guid: 7e73d8cc1e09492498f76df02fb52fbf, type: 3}
+    initialSize: 0
+  - type: 17
+    prefab: {fileID: 72295631480350893, guid: 73d0578dde8635c4db633cbe78f8af97, type: 3}
+    initialSize: 0
+--- !u!4 &875232863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875232861}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &971679797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,29 +2438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bd5b790abb9bd40b9ac492ac427474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeteorPrefabs:
-  - {fileID: 3955418798240587005, guid: 18bb600265b4a4a4fa29f69b9f5b8404, type: 3}
-  - {fileID: 6542101368399430838, guid: 5c3659959ebb30a489d7eef3009f8afc, type: 3}
-  - {fileID: 122214560388886015, guid: 0cc97290e5be8a24a95be78aef2fc1a6, type: 3}
-  - {fileID: 1416072628507055035, guid: 0d18f1a7832f6a44fa77efb30bde703e, type: 3}
-  - {fileID: 8869476336097629157, guid: a928b6b7e9852c6429b1e3022b0ca7ed, type: 3}
-  - {fileID: 3525697572991576568, guid: 70c536de7d9d92449ae52a7ff80766e1, type: 3}
-  - {fileID: 6192019827025467921, guid: 46fd36c0039a3de4e8a017dd1652a1c9, type: 3}
-  - {fileID: 6747026704579016348, guid: ae4d463454dcd3f4f8546cef1366ff03, type: 3}
-  - {fileID: 3592861495988656133, guid: a605a9cb8e6a23444baef3434392fdb5, type: 3}
-  - {fileID: 6554404179560890419, guid: 10eda568a7de7e04693212985f98844e, type: 3}
-  - {fileID: 7979792204202706108, guid: a4f6c7d73f99033429f262bcba1bdeb8, type: 3}
-  - {fileID: 1082700227081861820, guid: 65ee5b4a801d6d44eb112962bd3246e2, type: 3}
-  - {fileID: 1273717868519207366, guid: 0b41583a19866d64b9483e371372b152, type: 3}
-  - {fileID: 172733410043596393, guid: df633265b44cbf44eae676819a0f1900, type: 3}
-  - {fileID: 1829189280640820382, guid: 97fc4a6e44a6aed4a9f7e4f0a4e48bc3, type: 3}
-  - {fileID: 8266873878386540212, guid: 04d0e694d442538469994e2367f412b4, type: 3}
-  - {fileID: 1187051454626278293, guid: 7e73d8cc1e09492498f76df02fb52fbf, type: 3}
-  - {fileID: 72295631480350893, guid: 73d0578dde8635c4db633cbe78f8af97, type: 3}
-  Cooldown: 2
-  TimeSinceSpawn: 0
-  SpawnRange: 7
-  CooldownShorteningRate: 0.02
+  meteorPool: {fileID: 875232862}
+  cooldown: 2
+  spawnRange: 7
+  cooldownShorteningRate: 0.05
 --- !u!1 &2113876756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2761,11 +2841,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bd5b790abb9bd40b9ac492ac427474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeteorPrefabs: []
-  Cooldown: 2
-  TimeSinceSpawn: 0
-  SpawnRange: 7
-  CooldownShorteningRate: 0.05
+  meteorPool: {fileID: 875232862}
+  cooldown: 2
+  spawnRange: 7
+  cooldownShorteningRate: 0.05
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2780,3 +2859,4 @@ SceneRoots:
   - {fileID: 1672813283}
   - {fileID: 307649880}
   - {fileID: 2093938239}
+  - {fileID: 875232863}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MeteorBehavior : MonoBehaviour
 {
+    private GameManager gameManager;
+
     public int Health = 1;
 
     public int Speed = 1;
@@ -14,15 +16,20 @@ public class MeteorBehavior : MonoBehaviour
 
     HudManager hud;
 
+    private void Awake()
+    {
+        gameManager = GameManager.Instance;
+    }
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        hud = GameObject.FindGameObjectWithTag("Hud").GetComponent<HudManager>();
+        hud = gameManager.GetHud();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        rb.velocity = new Vector2(0, -1) * Speed;
+        rb.velocity = Vector2.down * Speed;
     }
 
     public void Hit()
@@ -32,7 +39,17 @@ public class MeteorBehavior : MonoBehaviour
         if(Health <= 0)
         {
             hud.IncreaseScore(ScoreAmount);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+
+    private void OnEnable()
+    {
+        gameManager.RegisterMeteor(this);
+    }
+
+    private void OnDisable()
+    {
+        gameManager.UnregisterMeteor(this);
     }
 }

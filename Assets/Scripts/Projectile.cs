@@ -4,28 +4,31 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private float speed = 10f;
 
-    public int speed;
+    private Rigidbody2D rb;
 
-    Rigidbody2D rb;
-
-    void Start()
+    private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-
-    void LateUpdate()
+    private void OnEnable()
     {
-        rb.velocity = new Vector2(0, 1) * speed;
+        rb.velocity = Vector2.up * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Meteor")
+        if(collision.CompareTag("Meteor"))
         {
-            collision.gameObject.GetComponent<MeteorBehavior>().Hit();
-            Destroy(gameObject);
+            collision.gameObject.GetComponent<MeteorBehavior>()?.Hit();
+            ReturnToPool();
         }
+    }
+
+    private void ReturnToPool()
+    {
+        gameObject.SetActive(false);
     }
 }

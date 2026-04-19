@@ -5,27 +5,46 @@ using UnityEngine;
 public class MeteorSpawner : MonoBehaviour
 {
 
-    [SerializeField] List<GameObject> MeteorPrefabs;
+    [SerializeField] private MeteorPooling meteorPool;
 
-    [SerializeField] float Cooldown = 2f;
+    [SerializeField] float cooldown = 2f;
 
-    [SerializeField] float TimeSinceSpawn = 0;
+    //[SerializeField] float TimeSinceSpawn = 0;
 
-    [SerializeField] float SpawnRange = 7;
+    [SerializeField] float spawnRange = 7;
 
-    [SerializeField] float CooldownShorteningRate = 0.05f;
+    [SerializeField] float cooldownShorteningRate = 0.05f;
+
+    private float timer;
 
     void Update()
     {
-        if(TimeSinceSpawn >= Cooldown)
+        timer += Time.deltaTime;
+
+        if (timer >= cooldown)
         {
-            Instantiate(MeteorPrefabs[Random.Range(0, MeteorPrefabs.Count - 1)], new Vector2(gameObject.transform.position.x+Random.Range(-SpawnRange,SpawnRange), gameObject.transform.position.y), Quaternion.identity);
-            TimeSinceSpawn = 0;
-            Cooldown = Mathf.Clamp(Cooldown - CooldownShorteningRate, 0.25f, 2);
+            SpawnMeteor();
+
+            timer = 0f;
+            cooldown = Mathf.Clamp(cooldown - cooldownShorteningRate, 0.25f, 2f);
         }
-        else
-        {
-            TimeSinceSpawn += Time.deltaTime;
-        }
+    }
+
+    private void SpawnMeteor()
+    {
+        MeteorType type = GetRandomType();
+
+        Vector2 pos = new Vector2(
+            transform.position.x + Random.Range(-spawnRange, spawnRange),
+            transform.position.y
+        );
+
+        meteorPool.Spawn(type, pos);
+    }
+
+    private MeteorType GetRandomType()
+    {
+        int value = Random.Range(0, System.Enum.GetValues(typeof(MeteorType)).Length);
+        return (MeteorType)value;
     }
 }

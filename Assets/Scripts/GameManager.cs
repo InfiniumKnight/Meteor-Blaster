@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
 
     [SerializeField] HudManager hud;
 
@@ -12,6 +13,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
 
     Vector2 startPosition;
+
+    private readonly List<MeteorBehavior> activeMeteors = new();
+
+    public HudManager GetHud() => hud;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -29,10 +39,8 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        foreach (GameObject g in GameObject.FindGameObjectsWithTag("Meteor"))
-        {
-            Destroy(g);
-        }
+        ResetMeteors();
+
         gameOverScreen.SetActive(false);
         hud.gameObject.SetActive(true);
         hud.Reset();
@@ -45,5 +53,31 @@ public class GameManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void RegisterMeteor(MeteorBehavior meteor)
+    {
+        if (!activeMeteors.Contains(meteor))
+        {
+            activeMeteors.Add(meteor);
+        }
+    }
+
+    public void UnregisterMeteor(MeteorBehavior meteor)
+    {
+        if (activeMeteors.Contains(meteor))
+        {
+            activeMeteors.Remove(meteor);
+        }
+    }
+
+    private void ResetMeteors()
+    {
+        foreach (var meteor in activeMeteors)
+        {
+            meteor.gameObject.SetActive(false);
+        }
+
+        activeMeteors.Clear();
     }
 }
